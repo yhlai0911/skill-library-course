@@ -881,7 +881,7 @@ function renderNav(cur){
  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{location.hash=b.dataset.go});
  $("#msel").innerHTML=U.map((u,i)=>`<option value="${u.id}" ${u.id===cur?'selected':''}>單元 ${i}：${u.title}${done[u.id]?' ✓':''}</option>`).join("");
  const n=Object.keys(done).filter(k=>done[k]).length;$("#progbar").style.width=(n/U.length*100)+"%";$("#progtxt").textContent=`完成 ${n} / ${U.length} 個單元測驗`;
- const sgn=Object.keys(store("skl-sg")||{}).length;$("#progtxt2").textContent=`分類練習 ${sgn} / 9 組 · 我的技能庫 ${libList().length} / 3 個技能`;
+ const sgn=Object.keys(store("skl-sg")||{}).length;$("#progtxt2").textContent=`分類練習 ${sgn} / 9 組 · 我的技能庫 ${libList().length} / 3 個技能`; if($("#rec"))recPanel();
 }
 function renderQuiz(u){
  const qs=u.quiz;u._ord=qs.map(q=>shuf(q.o.map((_,j)=>j)));
